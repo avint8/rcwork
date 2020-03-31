@@ -7,19 +7,19 @@ from PIL import Image
 
 def encrypt():
     try:
-        c1=np.load("static\c1.npy")
-        c2=np.load('static\c2.npy')
-        c3=np.load('static\c3.npy')
-        d1=np.load('static\d1.npy')
-        d2=np.load('static\d2.npy')
-        d3=np.load('static\d3.npy')
-        img=plt.imread('static\img.tiff')
+        c1=np.load("static/c1.npy")
+        c2=np.load('static/c2.npy')
+        c3=np.load('static/c3.npy')
+        d1=np.load('static/d1.npy')
+        d2=np.load('static/d2.npy')
+        d3=np.load('static/d3.npy')
+        img=plt.imread('static/img.tiff')
         
         r=256*256*3
         img=np.array(img,dtype=np.uint8)
         
-        do = Image.open('static\img.tiff')
-        do.save('static\do.png')
+        do = Image.open('static/img.tiff')
+        do.save('static/do.png')
 
 
 

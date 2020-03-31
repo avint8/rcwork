@@ -95,27 +95,27 @@ def encrypt():
         e_i=np.array(e_i,dtype=np.uint8)
         e_i=e_i.reshape(256,256,3)
         enc= Image.fromarray(e_i)
-        enc.save('static\enimg.tiff')
+        enc.save('static/enimg.tiff')
 
-        de = Image.open('static\enimg.tiff')
-        de.save('static\de.png')
+        de = Image.open('static/enimg.tiff')
+        de.save('static/de.png')
     except:return None
 
 
 def decrypt():
     print('decryption')
     try:
-        c1=np.load('static\c1.npy')
-        c2=np.load('static\c2.npy')
-        c3=np.load('static\c3.npy')
-        d1=np.load('static\d1.npy')
-        d2=np.load('static\d2.npy')
-        d3=np.load('static\d3.npy')
-        img=plt.imread('static\enimg.tiff')
+        c1=np.load('static/c1.npy')
+        c2=np.load('static/c2.npy')
+        c3=np.load('static/c3.npy')
+        d1=np.load('static/d1.npy')
+        d2=np.load('static/d2.npy')
+        d3=np.load('static/d3.npy')
+        img=plt.imread('static/enimg.tiff')
 
 
-        de = Image.open('static\enimg.tiff')
-        de.save('static\de.png')
+        de = Image.open('static/enimg.tiff')
+        de.save('static/de.png')
 
 
         r=256*256*3
@@ -238,8 +238,8 @@ def decrypt():
         e_i=e_i.reshape(256,256,3)
         e_i=np.array(e_i,dtype=np.uint8)
         enc= Image.fromarray(e_i)
-        enc.save('static\deimg.tiff')
+        enc.save('static/deimg.tiff')
 
-        dd = Image.open('static\deimg.tiff')
-        dd.save('static\dd.png')
+        dd = Image.open('static/deimg.tiff')
+        dd.save('static/dd.png')
     except:return None

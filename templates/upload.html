@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         safespace
+      </title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+   </head>
+
+
+
+   <body>
+      <div id='topblock'>
+         <h1 id='heading'>SAFE SPACE</h1>
+         <p class='para'>A platform to encrypt your images</p>
+      </div>
+
+
+      
+      <form action = "{{url_for('up')}}" method = "POST" enctype = "multipart/form-data" id='form'>
+         <p class='fi'>Supported format: .tiff</p>
+         <select  name='option' required class='fi'>
+            <p>select option:</p>
+            <option value="e" >Encrypt Image</option>
+            <option value="d" >Decrypt Image</option>
+         </select >
+         <input type = "file" name = "file" class='fi'/>
+         <button type = "submit" class='fi'>Start Convertion</button> 
+      </form>
+
+      
+      <div class='midblock'>
+         {% if im!=0 %}
+         {% if op=='e'  %}
+         <div id=img1>
+            <p>original image</p>
+            <img src="{{ url_for('static', filename='do.png') }}" type='image/tiff' height="30%">
+         </div>
+
+         <div id='img2'>      
+            <p>encrypted image</p>
+            <img src="{{ url_for('static', filename='de.png') }}" height="30%">
+            
+         </div>
+         
+         {% endif %}
+      </div>
+
+
+      <div class='midblock'>
+         {% if op=='d'  %}
+         <div id='img1'>
+            <p>encrypted image</p>
+            <img src="{{ url_for('static', filename='de.png') }}" height="30%">
+         </div>
+
+         <div id='img2'>      
+            <p>decrypted image</p>
+            <img src="{{ url_for('static', filename='dd.png') }}" height="30%">
+         </div>
+         {% endif %}
+         {% endif %}
+      </div>
+
+
+
+
+      {% if im!=0 %}
+      <div id='downloads'>
+         {% if op=='e' %}
+         <p>Downloads</p>
+         <ul>
+            <li>
+               <a href="{{ url_for('static', filename='enimg.tiff') }}">Decrypted Image</a>
+            </li>
+            <li>
+               <a href="{{ url_for('static', filename='c1.npy') }}">KEYS</a>
+            </li>
+         </ul>
+         {% endif %}
+         {% if op=='d' %}
+         <p>Downloads</p>
+         <ul>
+            <li>
+               <a href="{{ url_for('static', filename='deimg.tiff') }}">Decrypted Image</a>
+            </li>
+         </ul>
+         {% endif %}
+      </div>
+      {% endif %}
+   </body>
+</html>

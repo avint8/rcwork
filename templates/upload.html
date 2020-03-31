@@ -34,7 +34,7 @@
          {% if op=='e'  %}
          <div id=img1>
             <p>original image</p>
-            <img src="static/do.png" type='image/tiff' height="30%">
+            <img src="{{ url_for('static', filename='do.png') }}"  height="30%">
          </div>
 
          <div id='img2'>      
@@ -71,7 +71,7 @@
          <p>Downloads</p>
          <ul>
             <li>
-               <a href="{{ url_for('static', filename='enimg.tiff') }}">Decrypted Image</a>
+               <a href="{{ url_for('static', filename='img.tiff') }}">Decrypted Image</a>
             </li>
             <li>
                <a href="{{ url_for('static', filename='c1.npy') }}">KEYS</a>
